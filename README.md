@@ -19,3 +19,9 @@ To get everything started, run the following commands.
 ```
 rails server
 ```
+
+## Testing
+To run the tests, run the following commands.
+```
+rspec
+```
