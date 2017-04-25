@@ -27,10 +27,15 @@ describe FizzBuzz, '#run' do
     end
   end
   context 'with an invalid start or finish' do
-    it 'raises an argument' do
+    it 'raises an argument with invalid types' do
       expect {
         FizzBuzz.new('cheese', 56)
       }.to raise_error 'Start and Finish must be integers'
+    end
+    it 'raises an argument if it is over 100,000,000,000' do
+      expect {
+        FizzBuzz.new(2, 100000000001)
+      }.to raise_error 'Maximum value is 100,000,000,000'
     end
   end
 end
