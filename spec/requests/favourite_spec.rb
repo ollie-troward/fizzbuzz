@@ -9,5 +9,12 @@ RSpec.describe 'Favourite', type: :request do
         expect(response.body).to eq('Number 67 is now a favourite')
       end
     end
+    context 'when given the incorrect input' do
+      it 'displays an error for an invalid number' do
+        put '/favourite/iamanumber'
+        expect(response).to have_http_status(422)
+        expect(response.body).to eq('iamanumber is an invalid number')
+      end
+    end
   end
 end
