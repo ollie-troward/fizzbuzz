@@ -3,7 +3,7 @@ require 'paginator'
 
 class FizzbuzzController < ApplicationController
   def index
-    start, finish = Paginator.new(params[:page]).paginate
+    start, finish = Paginator.new(params[:page], params[:limit]).paginate
 
     begin
       render json: FizzBuzz.new(start, finish).run, status: 200

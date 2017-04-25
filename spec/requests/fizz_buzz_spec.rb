@@ -13,6 +13,11 @@ RSpec.describe 'FizzBuzz', type: :request do
         expect(response).to have_http_status(200)
         expect(response.body).to eq(file_fixture('page_11.json').read)
       end
+      it 'displays values from 5-8 based on a limit of 4' do
+        get '/?page=2&limit=4'
+        expect(response).to have_http_status(200)
+        expect(response.body).to eq(file_fixture('limit_4.json').read)
+      end
     end
     context 'when given an invalid input' do
       it 'displays the home page if the page number cannot be understood' do
