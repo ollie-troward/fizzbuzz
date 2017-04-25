@@ -1,18 +1,9 @@
 require 'fizz_buzz'
+require 'paginator'
 
 class FizzbuzzController < ApplicationController
   def index
-    start = 1
-    finish = 100
-
-    if params.has_key?(:page)
-      page = Integer(params[:page]) rescue false
-    end
-
-    if page
-      start = 1 + ((page - 1) * 100)
-      finish = 100 + ((page - 1) * 100)
-    end
+    start, finish = Paginator.new(params[:page]).paginate
 
     begin
       render json: FizzBuzz.new(start, finish).run, status: 200
