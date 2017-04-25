@@ -10,6 +10,8 @@ class FizzBuzz
     (@start...@finish + 1).each {|i|
       if i % 3 == 0
         results.push('Fizz')
+      elsif i % 5 == 0
+        results.push('Buzz')
       else
         results.push(i)
       end
