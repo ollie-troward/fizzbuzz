@@ -1,1 +1,1 @@
-["Buzz","Fizz",7,8]
+[{"number":"Buzz","favourite":false},{"number":"Fizz","favourite":false},{"number":7,"favourite":false},{"number":8,"favourite":false}]

@@ -17,11 +17,12 @@ rake
 ## Usage
 To get everything started, run the following commands.
 ```
+rails db migrate
 rails server
 ```
 
 ## Testing
-To run the tests, run the following commands.
+To run the tests, run the following command.
 ```
 rspec
 ```

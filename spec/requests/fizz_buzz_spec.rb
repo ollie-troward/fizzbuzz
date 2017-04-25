@@ -19,6 +19,17 @@ RSpec.describe 'FizzBuzz', type: :request do
         expect(response.body).to eq(file_fixture('limit_4.json').read)
       end
     end
+    context 'when setting a favourite' do
+      before(:each) do
+        @favourite = 179
+        put "/favourite/#{@favourite}"
+      end
+      it 'displays a flag on the favourite number' do
+        get '/?page=30&limit=6'
+        expect(response).to have_http_status(200)
+        expect(response.body).to eq(file_fixture('favourite.json').read)
+      end
+    end
     context 'when given an invalid input' do
       it 'displays the home page if the page number cannot be understood' do
         get '/?page=ijustlovecake'
