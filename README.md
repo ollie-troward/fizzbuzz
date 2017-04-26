@@ -27,3 +27,6 @@ To run the tests, run the following command.
 ```
 rspec
 ```
+
+## [The Client](client)
+Once the service has been setup, [click here](client) to use the client.
