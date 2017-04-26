@@ -22,7 +22,7 @@ python fizzbuzz.py http://localhost:3000 --page=1 --limit=100
 ```
 To favourite a number, run the command below.
 ```
-python favourite.py 67
+python favourite.py http://localhost:3000 67
 ```
 
 ## Testing
