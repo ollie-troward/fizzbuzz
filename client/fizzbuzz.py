@@ -3,8 +3,11 @@ import requests
 
 @click.command()
 @click.argument('url')
-def run(url):
-    response = requests.get(url)
+@click.option('--page', help='Set the page number.')
+@click.option('--limit', help='Limit of numbers on a page.')
+def run(url, page, limit):
+    parameters = {'page': page, 'limit': limit}
+    response = requests.get(url, params=parameters)
     results = response.json()
 
     for result in results:
