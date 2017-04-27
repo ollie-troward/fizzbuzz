@@ -15,6 +15,11 @@ RSpec.describe 'Favourite', type: :request do
         expect(response).to have_http_status(422)
         expect(response.body).to eq('iamanumber is an invalid number')
       end
+      it 'displays an error if it is greater than the maximum' do
+        put '/favourite/100000000000000000000'
+        expect(response).to have_http_status(422)
+        expect(response.body).to eq('100000000000000000000 is an invalid number')
+      end
     end
   end
 end

@@ -20,7 +20,14 @@ def test_invalid_favourite():
     assert result.exit_code == 0
     assert "cheese is an invalid number" in result.output
 
+def test_maximum_favourite():
+    runner = CliRunner()
+    result = runner.invoke(run, ['http://localhost:3000', '100000000000000000000'])
+    assert result.exit_code == 0
+    assert "100000000000000000000 is an invalid number" in result.output
+
 if __name__ == '__main__':
     setup()
     test_favourite_a_number()
     test_invalid_favourite()
+    test_maximum_favourite()
